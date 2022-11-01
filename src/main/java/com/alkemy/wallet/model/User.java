@@ -1,10 +1,13 @@
 package com.alkemy.wallet.model;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
 
 @Entity
@@ -34,6 +37,12 @@ public class User implements Serializable {
 
   @Column(name = "PASSWORD", nullable = false)
   private String password;
+
+  @CreationTimestamp
+  private LocalDateTime createDateTime;
+
+  @UpdateTimestamp
+  private LocalDateTime updateDateTime;
 
   @ManyToOne()
   @JoinColumn(name = "roleId")
