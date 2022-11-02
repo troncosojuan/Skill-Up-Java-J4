@@ -2,6 +2,7 @@ package com.alkemy.wallet.auth.service;
 
 import com.alkemy.wallet.auth.dto.UserAuthDto;
 import com.alkemy.wallet.auth.repository.UserRepository;
+import com.alkemy.wallet.entity.UserEntity;
 import com.alkemy.wallet.exception.RepeatedUsername;
 import java.util.Collections;
 import javax.validation.Valid;
@@ -26,17 +27,17 @@ public class UserDetailsCustomService implements UserDetailsService {
     if (userEntity == null) {
       throw new UsernameNotFoundException("username or password not found");
     }
-    return new User(userEntity.getUsername(), userEntity.getPassword(), Collections.emptyList());
+    return new User(userEntity.getEmail(), userEntity.getPassword(), Collections.emptyList());
   }
 
   public void save(@Valid UserAuthDto userDto) throws RepeatedUsername {
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
-    if (userRepository.findByUsername(userDto.getUsername()) != null) {
+    if (userRepository.findByUsername(userDto.getEmail()) != null) {
       throw new RepeatedUsername("Username repetido");
     }
     UserEntity userEntity = new UserEntity();
-    userEntity.setUsername(userDto.getUsername());
+    userEntity.setEmail(userDto.getEmail());
     userEntity.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
 
   }
