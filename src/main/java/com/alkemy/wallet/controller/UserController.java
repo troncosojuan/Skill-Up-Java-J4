@@ -19,7 +19,7 @@ public class UserController {
   @DeleteMapping("/{id}")
   public ResponseEntity deleteById(@PathVariable Long id){
     try {
-      userServiceImpl.deleteById(id)
+      userServiceImpl.deleteById(id);
       return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }catch (Exception e){
