@@ -1,5 +1,5 @@
 package com.alkemy.wallet.repository;
 
-public interface AccountRepository {
+public interface RoleRepository {
 
 }
