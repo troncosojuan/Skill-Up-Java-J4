@@ -1,0 +1,50 @@
+[33mcommit 7b0cac63bf6d3fb8fc1c2cc881c20f3b164c09dd[m[33m ([m[1;36mHEAD -> [m[1;32mAuthentification[m[33m, [m[1;31morigin/Authentification[m[33m)[m
+Author: Troncoso Juan <troncosojuanbernabe@gmail.com>
+Date:   Tue Nov 1 20:44:13 2022 -0300
+
+    Initial Commit
+
+[33mcommit 081e4cfa5e53932e30c401f02702080d621cd944[m
+Author: Troncoso Juan <troncosojuanbernabe@gmail.com>
+Date:   Tue Nov 1 17:11:23 2022 -0300
+
+    Se empieza la entidad User
+
+[33mcommit d29c9f4006119dc8115dd8f104705fb95959ebd9[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Merge: e59059d a570ab9
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Wed Oct 26 13:35:51 2022 -0300
+
+    Merge pull request #1 from turcoamado/update-README
+    
+    Update README.md
+
+[33mcommit a570ab9f4e37b0ed0ce316330d514f67a83724a8[m
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Wed Oct 26 13:34:01 2022 -0300
+
+    Update README.md
+
+[33mcommit e59059d4ca23231c9820066d8385242fa419c817[m
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Fri Sep 30 15:58:18 2022 -0300
+
+    Update README.md
+
+[33mcommit 9c62f09b77856bf8be302a88703e5a4363c768e5[m
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Fri Sep 30 15:48:08 2022 -0300
+
+    Update README.md
+
+[33mcommit c179b573512ff2ace0c888df7699099eec293a5f[m
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Fri Sep 30 15:42:43 2022 -0300
+
+    readme file added
+
+[33mcommit badfd18fe7d4e60c11d8239444d7fad5552f9a41[m
+Author: Yamil Amado Selene <amado.yamil@gmail.com>
+Date:   Thu Sep 29 17:45:15 2022 -0300
+
+    adding project structure
