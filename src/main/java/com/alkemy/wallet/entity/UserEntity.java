@@ -1,7 +1,8 @@
-package com.alkemy.wallet.model;
+package com.alkemy.wallet.entity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
@@ -17,7 +18,7 @@ import org.hibernate.annotations.Where;
 @Where(clause = "deleted=false")
 @Getter
 @Setter
-public class User implements Serializable {
+public class UserEntity implements Serializable {
 
 
   public static final long serialVersionUID = 1L;
@@ -46,7 +47,7 @@ public class User implements Serializable {
 
   @ManyToOne()
   @JoinColumn(name = "roleId")
-  private Role role;
+  private RoleEntity role;
 
   @OneToMany(mappedBy = "user",
       fetch = FetchType.EAGER,
@@ -57,8 +58,22 @@ public class User implements Serializable {
           CascadeType.PERSIST
       })
 
-  private List<Account> accounts;
-
   private boolean delete = Boolean.FALSE;
 
+  private List<AccountEntity> accounts = new ArrayList<>();
+
+  private void addAccount(AccountEntity account){
+    accounts.add(account);
+
+  }
+
+  private void deleteAccount(AccountEntity account){
+    accounts.remove(account);
+
+  }
+
+
+
 }
+
+
