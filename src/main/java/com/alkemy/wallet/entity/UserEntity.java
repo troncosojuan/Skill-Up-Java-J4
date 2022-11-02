@@ -14,7 +14,7 @@ import org.hibernate.annotations.Where;
 @Entity
 @Table(name = "users")
 
-@SQLDelete(sql = "UPDATE user SET deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE users SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 @Getter
 @Setter
@@ -58,7 +58,7 @@ public class UserEntity implements Serializable {
           CascadeType.PERSIST
       })
 
-  private boolean delete = Boolean.FALSE;
+  private boolean deleted = Boolean.FALSE;
 
   private List<AccountEntity> accounts = new ArrayList<>();
 
