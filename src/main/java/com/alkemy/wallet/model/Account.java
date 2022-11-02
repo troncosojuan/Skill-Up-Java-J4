@@ -6,13 +6,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import org.hibernate.annotations.SQLDelete;
+import javax.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
-@Table(name="accounts")
-@SQLDelete(sql = "UPDATE accounts SET deleted = true WHERE id=?")
-
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "accounts")
 
 public class Account implements Serializable {
 
@@ -20,17 +30,27 @@ public class Account implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long idAccount;
 
-  public Account() {
+
+  @ManyToOne
+  @JoinColumn(name = "currency")
+  @NotNull
+  private AccountTypeEnum currency;
+
+  public AccountTypeEnum getAccountType() {
+    return currency;
   }
 
+  public void setAccountType(AccountTypeEnum currency) {
+    this.currency = currency;
+  }
+
+  public <AccountDTO> Account(Long id) {
+    this.id = id;
   public enum currency{ars, usd};
 
-   private int currencyType;
-
-  Account( int currencyType ) {
-    this.currencyType= currencyType;
-  }
-
+    public AccountDTO convertEntityToDTO() {
+      return new ModelMapper().map(this, AccountDTO.class);
+    }
 
   @Column(name = "transactionLimit", nullable = false)
   private double transactionLimit;
