@@ -20,7 +20,7 @@ import org.hibernate.annotations.Where;
 @Getter
 @Setter
 @Entity
-@Table(name = "accounts")
+@Table(name = "ACCOUNT")
 @SQLDelete(sql = "UPDATE accounts SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 
@@ -28,30 +28,30 @@ public class AccountEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id_account", nullable = false)
+  @Column(name = "ID_ACCOUNT", nullable = false)
   private Integer id;
 
   @Enumerated(EnumType.STRING)
-  @Column(name = "currency", nullable = false)
+  @Column(name = "CURRENCY", nullable = false)
   private CurrencyList currency;
 
-  @Column(name = "transaction_limit", nullable = false)
+  @Column(name = "TRANSACTION_LIMITS", nullable = false)
   private Double transactionLimit;
 
-  @Column(name = "balance", nullable = false)
+  @Column(name = "BALANCE", nullable = false)
   private Double balance;
 
-  @Column(name = "update_date")
+  @Column(name = "UPDATE_DATE")
   private Instant updateDate;
 
-  @Column(name = "creation_date")
+  @Column(name = "CREATION_DATE")
   private Instant creationDate;
 
-  @Column(name = "soft_delete")
+  @Column(name = "SOFT_DELETE")
   private boolean softDelete = Boolean.FALSE;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  @JoinColumn(name = "user_id", nullable = false)
+  @JoinColumn(name = "UDER_ID", nullable = false)
   private UserEntity user;
 
 }
