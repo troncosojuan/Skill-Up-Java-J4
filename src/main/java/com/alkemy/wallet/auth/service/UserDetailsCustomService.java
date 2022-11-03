@@ -1,9 +1,10 @@
 package com.alkemy.wallet.auth.service;
 
 import com.alkemy.wallet.auth.dto.UserAuthDto;
-import com.alkemy.wallet.auth.repository.UserRepository;
+
 import com.alkemy.wallet.entity.UserEntity;
 import com.alkemy.wallet.exception.RepeatedUsername;
+import com.alkemy.wallet.repository.UserRepository;
 import java.util.Collections;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
