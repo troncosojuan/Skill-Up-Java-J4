@@ -20,12 +20,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public class AccountController {
+
   private AccountService accountService;
+
   @Autowired
-  AccountController(AccountService accountService){
+  AccountController(AccountService accountService) {
     this.accountService = accountService;
   }
 
+  @Secured(value = {"ROLE_ADMIN"})
+  @GetMapping("/accounts/{userId}")
+  public ResponseEntity<List<AccountListDto>> getAccountsById(@Valid @PathVariable Long id) {
+    List<AccountListDto> accounts = this.accountService.getAccountsById(id);
+    return ResponseEntity.ok(accounts);
+  }
+
+
+}
 
 
 
