@@ -35,7 +35,13 @@ public class AccountController {
     return ResponseEntity.ok(accounts);
   }
 
+  @PostMapping("/accounts")
+  public ResponseEntity<AccountDto> save(
+      @Valid @RequestBody AccountDto account) {
+    AccountDto result = accountService.save(account);
+    return ResponseEntity.status(HttpStatus.CREATED).body(result);
 
+  }
 }
 
 
