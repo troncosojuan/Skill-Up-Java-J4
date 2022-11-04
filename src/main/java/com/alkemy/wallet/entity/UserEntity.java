@@ -71,6 +71,23 @@ public class UserEntity implements Serializable {
     accounts.remove(account);
 
   }
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (!(obj instanceof UserEntity)) {
+      return false;
+    } else {
+      UserEntity userEntity = (UserEntity) obj;
+      if (this.getIdUser() != null) {
+        return this.getIdUser().equals(userEntity.getIdUser());
+
+      } else {
+        return false;
+      }
+    }
+  }
 
 
 
